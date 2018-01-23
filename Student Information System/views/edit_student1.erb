@@ -1,0 +1,169 @@
+<html>
+<head>
+	<title>EDIT STUDENT | AK</title>
+	<style>
+	html {background-color: #ccc;}
+	p {
+		line-height: 1em; 
+		margin-top:3px;
+	}
+	h1, h2, h3, h4{
+		color: Grey;
+		font-weight: normal;
+		line-height: 1.1em;
+		margin: 0 0 .5em 0;
+	}
+	h1{ font-size: 4.7em; }
+	h2{ font-size: 1.5em; }
+	a{
+		color: black;
+		text-decoration: none;
+	}
+	a:hover,
+	a:active{ text-decoration: none; }
+
+	.button {
+		padding:5px;
+		background: white;
+		color: black;
+	}
+
+	/*CSS for the body*/
+	body{
+		width:1580px; height:1000px; background-color:#dddcd9; margin:2em auto 2em; padding:25px; position:relative;
+		font-family: arial; font-size: 80%; 
+	}
+	img {
+		width: 1580;
+		height: 300;
+		align-self: center;
+		align-content: center;
+		margin-bottom: 15px;
+	}
+
+	#header{
+		width: 100%;
+		margin-top: 2px;
+		font-family: Arial;
+		display: inline-block;
+		font-size: 80%;
+		padding-left: 40px;
+	}
+
+	/*CSS for the navigation bar */
+	#nav{
+		width: 30%;
+		display: inline-block;
+		text-align: left;
+		float: left;
+		padding-left: 0px;
+	}
+
+	#nav ul li{
+		display: inline-block;
+		height: 32px;
+	}
+	#nav ul li a{
+		padding:8px;
+		background: #868484;
+		color: white;
+	}
+	#nav ul li a:hover{
+		background-color: #4a4a4a;
+	}
+
+	#content{
+		margin: 10px;
+		padding: 10px;
+		
+	}
+
+	/*Input form styles*/
+
+	input[type=text], select {
+		width: 20%;
+		padding: 12px 20px;
+		margin: 8px 0;
+		display: inline-block;
+		border: 1px solid #ccc;
+		border-radius: 4px;
+		box-sizing: border-box;
+	}
+
+	input[type=password], select {
+		width: 20%;
+		padding: 12px 20px;
+		margin: 8px 0;
+		display: inline-block;
+		border: 1px solid #ccc;
+		border-radius: 4px;
+		box-sizing: border-box;
+	}
+
+	input[type=submit] {
+		width: 20%;
+		background-color: #04a2d4;
+		color: white;
+		padding: 14px 20px;
+		margin: 8px 0;
+		border: none;
+		border-radius: 4px;
+		cursor: pointer;
+	}
+
+	input[type=submit]:hover {
+		background-color: #016780;
+	}
+	
+	form {
+		align: center;
+
+	}
+</style>
+
+</head>
+<body>
+	<div id="header">
+		<h1>Edit Student</h1>
+	</div>
+	
+	<div id="nav">
+		<ul>
+
+			<li><a href="/">Home</a></li>
+			<li><a href="/about">About</a></li>
+			<li><a href="/contact">Contact</a></li>
+			<li><a href="/students">Students</a></li>
+			<li><a href="/comments">Comment</a></li>
+			<li><a href="/video">Video</a></li>
+			<li><a href="/logout">Logout</a></li>
+
+		</ul>
+	</div>
+	<img src="/images/homeImage.jpg" >
+	
+	<div id="content">
+		<div>
+			<form method="post" action="/students/<%= @stud.s_id %>">
+				<input type="hidden" name="_method" value="put">
+				<label for="fname">Firstname</label>
+				<input type="text" id="fname" name="stud[fname]" value=<%= @stud.fname %>><br>
+
+				<label for="lname">Lastname</label>
+				<input type="text" id="lname" name="stud[lname]" value=<%= @stud.lname %>><br>
+
+				<label for="address">Address</label>
+				<input type="text" id="address" name="stud[address]" value=<%= @stud.address %>><br>
+
+				<label for="dob">Date of Birth</label>
+				<input type="text" id="address" name="stud[dob]" value=<%= @stud.dob %>><br>
+
+				<input type="submit" name="update" value="Update">
+
+			</form>
+		</div>
+		<div><a href="/students" class="button"><<< BACK</a></div>
+	</div>
+</body>
+
+</html>

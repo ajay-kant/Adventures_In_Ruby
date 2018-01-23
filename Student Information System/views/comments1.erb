@@ -1,0 +1,105 @@
+<html>
+<head>
+	<title>COMMENTS | AK</title>
+	<style>
+	html {background-color: #ccc;}
+	p {
+		line-height: 1em; 
+		margin-top:3px;
+	}
+	h1, h2, h3, h4{
+		color: Grey;
+		font-weight: normal;
+		line-height: 1.1em;
+		margin: 0 0 .5em 0;
+	}
+	h1{ font-size: 4.7em; }
+	h2{ font-size: 1.5em; }
+	a{
+		color: black;
+		text-decoration: none;
+	}
+	a:hover,
+	a:active{ text-decoration: none; }
+
+	/*CSS for the body*/
+	body{
+		width:1580px; height:1000px; background-color:#dddcd9; margin:2em auto 2em; padding:25px; position:relative;
+		font-family: arial; font-size: 80%; 
+	}
+	img {
+		width: 1580;
+		height: 300;
+		align-self: center;
+		align-content: center;
+		margin-bottom: 15px;
+	}
+
+	#header{
+		width: 100%;
+		margin-top: 2px;
+		font-family: Arial;
+		display: inline-block;
+		font-size: 80%;
+		padding-left: 40px;
+	}
+
+	/*CSS for the navigation bar */
+	#nav{
+		width: 50%;
+		display: inline-block;
+		text-align: left;
+		float: left;
+		padding-left: 0px;
+	}
+
+	#nav ul li{
+		display: inline-block;
+		height: 32px;
+	}
+	#nav ul li a{
+		padding:8px;
+		background: #868484;
+		color: white;
+	}
+	#nav ul li a:hover{
+		background-color: #4a4a4a;
+	}
+
+	#content{
+		margin: 10px;
+		padding: 10px;
+		
+	}
+
+</style>
+
+</head>
+<body>
+	<div id="header">
+		<h1>Comments</h1>
+	</div>
+	<div id="nav">
+		<ul>
+			<li><a href="/">Home</a></li>
+			<li><a href="/about">About</a></li>
+			<li><a href="/contact">Contact</a></li>
+			<li><a href="/students">Students</a></li>
+			<li><a href="/comments">Comment</a></li>
+			<li><a href="/video">Video</a></li>
+			<li><a href="/login">Login</a></li><br><br>
+			<li><a href="/comments/new">Add Comment</a></li>
+		</ul>
+	</div>
+	
+	<img src="/images/homeImage.jpg" >
+	<div id="content">
+		<u><h2>List of Comments (Click comment to view)</h2></u>
+		<% @cmt.to_a.each do |c| %>
+		<a href="/comments/<%= c.c_id %>/viewdetails"><%= c.comment %></a><br>
+		<% end %>
+	</div>	
+
+</body>
+
+</html>
