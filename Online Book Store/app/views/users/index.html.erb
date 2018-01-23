@@ -1,0 +1,43 @@
+<style>
+table, th, td {
+    border-collapse: collapse;
+}
+th, td {
+    padding: 5px;
+}
+</style>
+
+<h1>Users</h1>
+
+<%if notice %>
+  <p id="notice"><%= notice %></p>
+<% end %>
+
+<table>
+  <thead>
+    <tr>
+      <th><u>Name</u></th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @users.each do |user| %>
+      <tr>
+        <td><%= user.name %></td>
+        <td>&nbsp;&nbsp;&nbsp;</td>
+        <td><%= link_to 'Show', user %></td>
+        <td><%= link_to 'Edit', edit_user_path(user) %></td>
+        <% if session[:user_id] != user.id %>
+         <td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure you want to delete the user?'} %></td>
+        <% else %>
+        <td> Cannot delete this user. User is currently logged in. </td>
+        <% end %>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New User', new_user_path %>
